@@ -2,11 +2,11 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0.306-windowsservercore-ltsc2022 AS builder
 
 WORKDIR /app
 
-RUN ["pwsh", "-Command", "dotnet new worker -o Worker -n DotNet.ContainerImage"]
+RUN ["dotnet", "new", "worker", "-o", "Worker", "-n", "DotNet.ContainerImage"]
 
 WORKDIR /app/Worker
 
-RUN ["pwsh", "-Command", "dotnet publish"]
+RUN ["dotnet", "publish"]
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0.5-windowsservercore-ltsc2022
 
