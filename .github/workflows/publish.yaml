@@ -29,4 +29,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: build
-        run: docker build --platform windows/amd64 --push ghcr.io/saedx1/windows-server-2022-k8s:1.0.0
+        run: |
+          docker build . -t ghcr.io/saedx1/windows-server-2022-k8s:1.0.0
+          docker push ghcr.io/saedx1/windows-server-2022-k8s:1.0.0
